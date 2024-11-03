@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWO by Sushmita Shukla</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="./a minimal logo for a fitness page named FWO featuring a girl with wings.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    color: #FFF;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Solid background color behind the image */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* Solid color for no vignette effect */
+    z-index: -2; /* Place behind the blurred image */
+}
+
+/* Background image as a second pseudo-element */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./saundarya-srinivasan-9CFwOcFCcDI-unsplash.jpg"); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0.9; /* Slightly lower opacity to blend with solid color */
+    transition: filter 1s ease;
+    pointer-events: none;
+}
+
+/* Blurred background */
+body.blurred::after {
+    filter: blur(7px);
+}
+
+/* Mobile-specific styles */
+@media (max-width: 900px) {
+    /* Ensure the background does not scroll */
+    body::after {
+        background-image: url("./mobile\ wll.jpg"); /* Replace with your desktop image path */
+        background-size: contain; /* Fit within the screen and maintain aspect ratio */
+        background-position: center top; /* Center image from the top */
+        background-repeat: repeat;
+    }
+
+    /* Optional: Adjust blur for mobile if needed */
+    body.blurred::after {
+        filter: blur(10px); /* Adjust blur for mobile if needed */
+    }
+}
+
+
+
+
+
+/* Content container to overlay text and other elements */
+.content {
+    position: relative; /* Allow positioning relative to the parent */
+    z-index: 1; /* Ensure content is above the background */
+    padding: 20px; /* Adjust padding as needed */
+}
+
+        /* Navbar styles */
+        .navbar {
+            font-family: "Outfit" , serif;
+            position: sticky;
+            top: 20px;
+            background-color: #130909; /* Darker purple for navbar */
+            padding: 15px;
+            display: flex;
+            justify-content: center; /* Centering items */
+            z-index: 1000; /* Ensure navbar is above other content */
+            transition: all 0.5s ease; /* Smooth transition for size changes */
+        }
+        .navbar a {
+            color: white; /* White text for links */
+            text-decoration: none;
+            padding: 10px 30px;
+            border-radius: 5px; /* Default border radius */
+            transition: background-color 0.3s, border-radius 0.5s; /* Smooth background and border-radius change */
+            margin: 0 10px; /* Add some horizontal spacing between links */
+        }
+        .navbar.shrink {
+            top: 20px;
+            padding: 10px; /* Reduced padding when shrunk */
+            border-radius: 20px; /* Pill shape */
+            background-color:rgba(34, 16, 16, 0.534); /* More transparent when shrunk */
+            backdrop-filter: blur(10px); /* Blur effect for the background */
+            transform: scale(0.9); /* Scale down the navbar */
+        }
+        .navbar a:hover {
+            background-color: rgba(0, 0, 0, 0.52); /* Background color on hover */
+            border-radius: 15px; /* Set border radius on hover */
+        }
+        /* Main content styles */
+        main {
+            padding: 20px;
+        }
+        /* Thick break line styles */
+        hr {
+            border: 3px solid #afafaf;
+            width: 100%;
+            margin: 30px 0;
+        }
+        /* Flex container for image and text */
+        .content-container {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+        /* Image styles */
+        .img {
+            flex: 1; /* Allow the image to take space */
+            max-width: 400px; /* Max width for desktop */
+        }
+        .img img {
+            width: 100%; /* Make the image responsive */
+            border-radius: 20px; /* Rounded corners */
+            margin-top: 20px; /* Adjust margin for spacing */
+        }
+        /* Text container styles */
+        .text-container {
+            margin-left: -70px; /* Space between image and text */
+            color: #3B1E54;
+            flex: 2; /* Allow the text to take more space */
+        }
+        /* Collage Section Styles */
+        .collage-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .collage-image {
+            text-align: center;
+        }
+
+        .collage-image img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .collage-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .collage-text {
+            font-family: 'Outfit', serif;
+            font-size: 30px;
+            font-weight: 300;
+            color: #3B1E54;
+            margin-bottom: 10px;
+        }
+        .transformation-message {
+            text-align: center;
+            font-family: 'Outfit', serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #3B1E54;
+            margin-top: 50px;
+            max-width: 800px; /* Limit max width for better readability */
+            margin-left: auto;
+            margin-right: auto; /* Center the message */
+        }
+        /* Media query for mobile optimization */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column; /* Stack image and text vertically */
+                align-items: center; /* Center align items */
+            }
+            .text-container {
+                margin-left: 0; /* Remove left margin on mobile */
+                text-align: center; /* Center the text */
+                margin-top: 20px; /* Add space between image and text */
+            }
+            .navbar {
+                padding: 10px 5px; /* Adjust padding for mobile */
+            }
+            .navbar a {
+                margin: 0 -7px; /* Adjust spacing between links */
+            }
+            .img {
+                max-width: 100%; /* Full width for images on mobile */
+            }
+            hr {
+                margin: 20px 0; /* Adjust margin for hr on mobile */
+            }
+            .navbar a {
+                transition: transform 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
+                color: #EEEEEE;
+            }
+
+            .navbar a:hover {
+               color: #EEEEEE;
+               background-color: rgba(0, 0, 0, 0); /* Background color on hover */
+               border-radius: 100px; /* Set border radius on hover */
+               transform: scale(1.15); /* Smooth scaling */
+            }
+
+            .navbar.shrink {
+                top: 15px;
+                padding: 10px; /* Reduced padding when shrunk */
+                border-radius:20px; /* Pill shape */
+                background-color: rgba(34, 16, 16, 0.534); /* More transparent when shrunk */
+                backdrop-filter: blur(10px); /* Blur effect for the background */
+                transform: scale(0.8); /* Scale down the navbar */
+            }
+            .navbar.shrink a{
+                color: rgb(197, 197, 197);
+            }
+            .navbar.shrink a:hover{
+                color: #EEEEEE;
+            }
+            /* Collage Styles for Mobile */
+            .collage-container {
+                flex-direction: column; /* Stack images vertically */
+                align-items: center; /* Center images */
+                gap: 15px;
+            }
+
+            .collage-image img {
+                width: 90%; /* Ensure the image is responsive */
+            }
+
+            .collage-text {
+                text-align: center; /* Center text on mobile */
+            }
+            .transformation-message {
+                font-size: 16px; /* Adjust font size for mobile */
+                margin-top: 40px; /* Reduce margin for mobile */
+            }
+            .programs-container {
+                flex-direction: column; /* Stack items vertically on mobile */
+                align-items: center; /* Center items */
+            }
+            .program {
+                text-align: center; /* Center text on mobile */
+            }
+            .whatsapp-button {
+                position: static; /* Reset positioning on mobile */
+                margin-top: 15px; /* Space above the button */
+            }
+        }
+        .programs-container {
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow wrapping to next line */
+            justify-content: center; /* Center items */
+        }
+
+        .program {
+            color: #000;
+            position: relative; /* Allow positioning of WhatsApp button */
+            margin: 20px; /* Space between program sections */
+            border: 1px solid #EEEEEE; /* Border around each program */
+            padding: 20px; /* Padding inside each program */
+            border-radius: 10px; /* Rounded corners */
+            background-color: #d9d9d9; /* White background for contrast */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            flex: 1 1 300px; /* Flex items to be responsive */
+            max-width: 350px; /* Maximum width for each program */
+            text-align: left; /* Align text to left */
+        }
+
+        .whatsapp-button {
+            position: absolute; /* Absolute positioning */
+            bottom: 10px; /* Distance from the bottom */
+            left: 10px; /* Distance from the left */
+        }
+
+        .whatsapp-button a {
+            display: inline-flex; /* Flexbox for alignment */
+            align-items: center; /* Center icon and text */
+            background-color: #12813b; /* WhatsApp green */
+            color: white; /* White text */
+            padding: 10px 20px; /* Padding inside the button */
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Font size */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+
+        .whatsapp-button a:hover {
+            background-color: #128C7E; /* Darker green on hover */
+        }
+
+        .whatsapp-button i {
+            margin-right: 8px; /* Space between icon and text */
+            font-size: 20px; /* Icon size */
+        }
+        ul {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center list items horizontally */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    list-style-type: none; /* Remove bullet points */
+}
+
+/* Media query for desktop */
+@media (min-width: 768px) { /* Adjust the min-width as needed for your design */
+    ul {
+        margin-top: 50px; /* Add top margin for desktop */
+        margin-bottom: 80px; /* Add bottom margin for desktop */
+    }
+}
+
+    
+    ul li {
+      list-style:none;
+      margin:0 5px;
+    }
+    
+    ul li a .fa {
+      font-size: 40px;
+      color: #262626;
+      line-height:80px;
+      transition: .5s;
+      padding-right: 14px;
+    }
+    
+    ul li a span {
+      padding:0;
+      margin:0;
+      position:absolute;
+      top: 30px;
+      color: #262626;
+      letter-spacing: 4px;
+      transition: .5s;
+    }
+    
+    ul li a {
+      text-decoration: none;
+      display:absolute;
+      display:block;
+      width:210px;
+      height:80px;
+      background: #fff;
+      text-align:left;
+      padding-left: 20px;
+      transform: rotate(-30deg) skew(25deg) translate(0,0);
+      transition:.5s;
+      box-shadow: -20px 20px 10px rgba(0,0,0,.5);
+    }
+    ul li a:before {
+      content: '';
+      position: absolute;
+      top:10px;
+      left:-20px;
+      height:100%;
+      width:20px;
+      background: #b1b1b1;
+      transform: .5s;
+      transform: rotate(0deg) skewY(-45deg);
+    }
+    ul li a:after {
+      content: '';
+      position: absolute;
+      bottom:-20px;
+      left:-10px;
+      height:20px;
+      width:100%;
+      background: #b1b1b1;
+      transform: .5s;
+      transform: rotate(0deg) skewX(-45deg);
+    }
+    
+    ul li a:hover {
+      transform: rotate(-30deg) skew(25deg) translate(20px,-15px);
+      box-shadow: -50px 50px 50px rgba(0,0,0,.5);
+    }
+    
+    ul li:hover .fa {
+      color:#fff;
+    }
+    
+    ul li:hover span {
+      color:#fff;
+    }
+    
+    ul li:hover:nth-child(1) a{
+      background: #3b5998;
+    }
+    ul li:hover:nth-child(1) a:before{
+      background: #365492;
+    }
+    ul li:hover:nth-child(1) a:after{
+      background: #4a69ad;
+    }
+    
+    ul li:hover:nth-child(2) a{
+      background: #25D366;
+    }
+    ul li:hover:nth-child(2) a:before{
+      background: #2da22d;
+    }
+    ul li:hover:nth-child(2) a:after{
+      background: #62fb95;
+    }
+    
+    ul li:hover:nth-child(3) a{
+      background: #dd4b39;
+    }
+    ul li:hover:nth-child(3) a:before{
+      background: #b33a2b;
+    }
+    ul li:hover:nth-child(3) a:after{
+      background: #e66a5a;
+    }
+    
+    ul li:hover:nth-child(4) a{
+      background: #e4405f;
+    }
+    ul li:hover:nth-child(4) a:before{
+      background: #d81c3f;
+    }
+    ul li:hover:nth-child(4) a:after{
+      background: #e46880;
+    }
+    .heading{
+            margin-top: 60px;
+        }
+    @media (max-width: 768px) {
+        ul {
+            flex-direction: column; /* Change to column layout for mobile */
+            align-items: center; /* Center align items */
+            margin: 0; /* Reset margin */
+            padding: 0; /* Reset padding */
+        }
+    
+        ul li {
+            margin: 30px 0; /* Add vertical spacing between items */
+        }
+    
+        ul li a {
+            scale: 0.8;
+            transform: rotate(0deg) skew(0deg) translate(0, 0); /* Reset transformation */
+        }
+        .heading{
+            margin-top: 5px;
+        }
+    }
+    
+
+
+    </style>
+</head>
+<body>
+    <div class="parallax"></div> <!-- Background image with parallax effect -->
+    
+    <div class="content"> <!-- Overlay content -->
+    <div class="navbar" id="navbar">
+        <a href="#">Home</a> <!-- Modified href -->
+        <a href="#programs">Programs</a>
+        <a href="#contact" class="scroll-to-bottom">Contact</a>
+    </div>
+    
+    <div>
+        <h1 style="margin-top: 175px;">
+            <div style="font-family: Outfit, serif; color: #EEEEEE; font-size: 50px;">FITTER WAY OUT</div>
+            <div style="color: #d9d9d9;font-weight: 500;">by Sushmita Shukla</div>
+        </h1>
+        <p style="color: #d9d9d9; font-weight: 500;">Create a way of life, not a phase of life</p>
+    
+        <!-- Thick break line between text and image -->
+        <hr style="margin-top: 200px;margin-bottom: 50px;">
+    
+        <!-- Flex container for image and text -->
+        <div class="content-container">
+            <!-- Image Section -->
+            <div class="img">
+                <img src="./WhatsApp Image 2024-10-22 at 19.27.19.jpeg" style="width: 300px;" alt="Fitness Image">
+            </div>
+        
+            <!-- Text Section -->
+            <div class="text-container">
+                <h2 style="font-family: Outfit, serif; font-size: 30px;font-weight: 900;color: #EEEEEE;">ABOUT</h2>
+                <p style="font-weight: 500;color: #d9d9d9;">
+                    Fitness has much more to do than just having a slimmer waist. It is defined by how you feel; it is a lifestyle that you follow for the value of your soundness rather than people's judgments. Through this program, I'll be guiding you to get back to your basics and form a sustainable plan that can be followed as a lifestyle. Because deprivation cannot be a way of life. This is a fitter way out from those boring fads that you have been hearing, as I am here to help you break the cycle of being on and off a diet. SAY YES TO YOUR FAVOURITE FOODS, BE IT THE NORTH INDIAN RAJMA CHAWAL OR PARATHAS. I am here to add balance over restriction.
+                </p>
+            </div>
+        </div>
+
+        <!-- Second thick break line -->
+        <hr style="margin-top: 60px; margin-bottom: 60px;">
+
+        <!-- Transformation Journey Section -->
+        <h2 style="display: flex; justify-content: center;font-family: Outfit, serif; font-size: 30px;font-weight:900; color: #EEEEEE;margin-bottom: -30px;">TRANSFORMATION JOURNEY</h2>
+
+        <!-- Collage Section -->
+        <div class="collage-container">
+            <div class="collage-image">
+                <p class="collage-text" style="font-weight: 600; color: #EEEEEE;">BEFORE</p>
+                <img src="./bfore.jpeg" alt="Before Image">
+            </div>
+            <div class="collage-image">
+                <p class="collage-text" style="font-weight: 600; color: #EEEEEE;">AFTER</p>
+                <img src="./aftr.jpeg" alt="After Image">
+            </div>
+        </div>
+        <p class="transformation-message" style="font-weight: 500;color: #d9d9d9;">
+            Witness the incredible transformation! Our program focuses on sustainable fitness, ensuring you enjoy your favorite foods while achieving your goals.
+        </p>
+        <hr style="margin-top: 60px; ">
+        <h1 id="programs" style="font-family: Outfit, serif;color: #EEEEEE; margin-top: 40px;font-weight: 900;">OUR PROGRAMS</h1>
+
+    <!-- Programs Container -->
+    <div class="programs-container">
+        <!-- 1 Month Program -->
+        <div class="program">
+            <h2>1 Month Program</h2>
+            <p style="margin-bottom: 50px; color: #000;">Includes a personalized 1-month nutrition plan with no fads or crash diets. All meal plans will be provided according to your convenience considering your food preferences.</p>
+            <div class="whatsapp-button">
+                <a style="font-family: Outfit, serif;" href="https://wa.me/+918317041115?text=Interested%20in%20the%201%20Month%20Program!" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- 1 on 1 Consultation -->
+        <div class="program">
+            <h2>1-on-1 Consultation</h2>
+            <p style="margin-bottom: 50px; color: #000;">This is a 1-hour video call to give you an idea of your eating pattern to fulfill your daily macro & micro nutrient needs. You'll be kept in touch for a week for how you should be eating according to your body type.</p>
+            <div class="whatsapp-button">
+                <a style="font-family: Outfit,serif;"href="https://wa.me/+918317041115?text=Interested%20in%20the%201%20on%201%20Consultation!" target="_blank" >
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- 1 Month Home Workout Plan -->
+        <div class="program">
+            <h2>1 Month Home Workout Plan</h2>
+            <p style="margin-bottom: 50px; color: #000;">If you're someone who can't hit the gym, this is a 1-month workout plan that provides you with home workouts under the guidance of our trainers. Considering your strength and stamina, we'll design a workout to gradually build your strength at the comfort of your home.</p>
+            <div class="whatsapp-button">
+                <a style="font-family: Outfit,serif;" href="https://wa.me/+918317041115?text=Interested%20in%20the%201%20Month%20Home%20Workout%20Plan!" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+<hr style="margin-top: 60px; margin-bottom: 60px;">
+
+</div>
+
+
+
+<h1 class="heading" style="color: #EEEEEE; font-weight: 900; display: flex;justify-content: center; font-family: Outfit, serif; ">CONTACTS</h1>
+<ul>
+  <ul>
+    <li>
+        <a href="mailto:itssushmitashukla73@gmail.com">
+            <i class=" fb" aria-hidden="true"></i>
+            <span style="font-weight: 500;">Email</span>
+        </a>
+    </li>
+    <li>
+        <a href="https://wa.me/+918317041115?text=Hello%20there!%20I%20have%20a%20question.">
+            <i class=" wp" aria-hidden="true"></i>
+            <span style="font-weight: 500;">WhatsApp</span>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.instagram.com/fitterwayout/">
+            <i class=" ig" aria-hidden="true"></i>
+            <span style="font-weight: 500;">Instagram</span>
+        </a>
+    </li>
+</ul>
+
+    </main>
+
+    <script>
+    window.addEventListener("scroll", () => {
+        const scrollThreshold = 50; // Adjust this value as needed
+        if (window.scrollY > scrollThreshold) {
+            document.body.classList.add("blurred");
+        } else {
+            document.body.classList.remove("blurred");
+        }
+    });
+
+        window.onscroll = function() { shrinkNavbar() }; // Bind scroll event to shrinkNavbar function
+        
+        function shrinkNavbar() {
+            const navbar = document.getElementById("navbar");
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                navbar.classList.add("shrink");
+            } else {
+                navbar.classList.remove("shrink");
+            }
+        }
+    
+        // Smooth scrolling
+        const navbarLinks = document.querySelectorAll('.navbar a');
+    
+        navbarLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default anchor click behavior
+                
+                if (this.getAttribute('href') === "#") {
+                    // Scroll to top for home link
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth' // Smooth scroll to top
+                    });
+                } else {
+                    const targetId = this.getAttribute('href').substring(1); // Get target id
+                    const targetElement = document.getElementById(targetId); // Get target element
+    
+                    // Scroll to the target element
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth', // Smooth scroll
+                        block: 'start' // Align to the start of the element
+                    });
+                }
+            });
+        });
+        window.addEventListener('scroll', function() {
+        const parallax = document.querySelector('.parallax');
+        const scrollPosition = window.scrollY; // Current scroll position
+
+        // Calculate blur based on scroll position
+        const blurAmount = Math.min(scrollPosition / 10, 20); // Limit the blur effect
+        parallax.style.filter = `blur(${blurAmount}px)`; // Apply blur
+        
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get the button or link that will trigger the scroll
+        const scrollToBottomButton = document.querySelector('.scroll-to-bottom');
+
+        // Add click event listener
+        scrollToBottomButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default behavior if it's a link
+
+            // Scroll to the bottom of the page
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth' // Smooth scroll animation
+            });
+        });
+    });
+    </script>
+    
+    
+</body>
+</html>
